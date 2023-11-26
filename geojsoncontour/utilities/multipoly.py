@@ -43,10 +43,9 @@ def angle(v1, v2):
 
 def keep_high_angle(vertices, min_angle_deg):
     """Keep vertices with angles higher then given minimum."""
-    accepted = []
     v = vertices
     v1 = v[1] - v[0]
-    accepted.append((v[0][0], v[0][1]))
+    accepted = [(v[0][0], v[0][1])]
     for i in range(1, len(v) - 2):
         v2 = v[i + 1] - v[i - 1]
         diff_angle = np.fabs(angle(v1, v2) * 180.0 / np.pi)
@@ -65,7 +64,7 @@ def set_contourf_properties(stroke_width, fcolor, fill_opacity, level, unit):
         "stroke-opacity": 1,
         "fill": fcolor,
         "fill-opacity": fill_opacity,
-        "title": "{} {}".format(level, unit)
+        "title": f"{level} {unit}",
     }
 
 
