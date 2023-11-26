@@ -58,11 +58,10 @@ def netcdf_to_geojson(ncfile, var, fourth_dim=None):
         contourf = ax.contourf(X, Y, third, levels=levels, cmap=plt.cm.viridis)
         geojsoncontour.contourf_to_geojson(
             contourf=contourf,
-            geojson_filepath='{}_{}_t{}_{}.geojson'.format(name, var,
-                                                           t, position),
+            geojson_filepath=f'{name}_{var}_t{t}_{position}.geojson',
             ndigits=3,
             min_angle_deg=None,
-            unit=unit
+            unit=unit,
         )
 
 
